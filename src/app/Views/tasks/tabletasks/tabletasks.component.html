@@ -1,0 +1,80 @@
+
+<div class="col-md-12">
+  <h1>Gestionar Tareas</h1>
+  <a class="btn btn-info mb-3" routerLink="create" routerLinkActive="active">Crear Tarea</a>
+
+  <div class="mat-elevation-z8">
+    <mat-form-field>
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="searchTasks()" placeholder="Ex. ium" #input [(ngModel)]="dataTable.search">
+    </mat-form-field>
+
+    <div class="table-responsive">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> Id </th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="titulo">
+          <th mat-header-cell *matHeaderCellDef> Titulo </th>
+          <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="descripcion">
+          <th mat-header-cell *matHeaderCellDef> Descripcion </th>
+          <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="finalizar">
+          <th mat-header-cell *matHeaderCellDef> Finalizar Tarea </th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-mini-fab class="bg-success" (click)="completeTask(element.id)" *ngIf="element.status == 'pendiente'">
+              <mat-icon>check</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="estado">
+          <th mat-header-cell *matHeaderCellDef> Estado </th>
+          <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="editar">
+          <th mat-header-cell *matHeaderCellDef> Editar </th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-mini-fab class="bg-primary" (click)="editTask(element.id, element)">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+    
+        <!-- Columna Eliminar -->
+        <ng-container matColumnDef="eliminar">
+          <th mat-header-cell *matHeaderCellDef> Eliminar </th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-mini-fab class="bg-danger" (click)="deleteTask(element)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+    
+        <!-- Encabezado de la tabla -->
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    
+        <!-- Filas de datos -->
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    
+        <!-- Mensaje cuando no hay datos -->
+        <tr *matNoDataRow>
+          <td class="mat-cell no-data-cell" colspan="6">NO HAY REGISTROS</td>
+        </tr>
+    
+      </table>
+    </div>
+    
+
+  </div>
+</div>
+

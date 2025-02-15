@@ -1,0 +1,36 @@
+<form (ngSubmit)="onSubmit()" #usersForm="ngForm">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="form-group">
+        <mat-form-field class="example-full-width">
+          <mat-label>Titulo de la tarea</mat-label>
+          <input
+          matInput
+          id="title"
+          [(ngModel)]="task.title"
+          name="title"
+          required
+          placeholder="Titulo de la tarea"
+          #name="ngModel">
+        </mat-form-field>
+      </div>
+      <div class="col-lg-12">
+        <div class="form-group">
+          <mat-form-field class="example-full-width">
+            <mat-label>Descripcion de la tarea</mat-label>
+            <input
+            matInput
+            id="description"
+            [(ngModel)]="task.description"
+            name="description"
+            required
+            placeholder="Descripcion de la tarea"
+            #name="ngModel">
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button type="button" class="btn btn-secondary m-1" (click)="indexTasks()">Devolver</button>
+  <button type="submit" class="btn btn-success m-1">Guardar</button>
+</form>
