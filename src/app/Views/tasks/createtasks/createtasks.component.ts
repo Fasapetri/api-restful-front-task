@@ -25,7 +25,7 @@ export class CreateTasksComponent implements OnInit{
   onSubmit(){
       Swal.fire({
         title: '¿Estas seguro?',
-        text: "Confirmar si deseas guardar los datos del usuario ingresados.",
+        text: "Confirmar si deseas guardar los datos de la tarea ingresados.",
         icon: 'question',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
@@ -38,7 +38,7 @@ export class CreateTasksComponent implements OnInit{
           this.tasksService.storeTasks(this.task).subscribe(
             (success: any) => {
                 this.indexTasks();
-                this.alertSwal('success', '¡Accion Exitosa!', 'Creacion del usuario exitosa.');
+                this.alertSwal('success', '¡Accion Exitosa!', 'Creacion de la tarea exitosa.');
             },
             error => {
               // Manejo de errores aquí
@@ -59,7 +59,7 @@ export class CreateTasksComponent implements OnInit{
             }
           )
         }else{
-          this.alertSwal('warning', '¡Accion cancelada!', 'Creacion del usuario cancelada.');
+          this.alertSwal('warning', '¡Accion cancelada!', 'Creacion de la tarea cancelada.');
         }
       })
   }

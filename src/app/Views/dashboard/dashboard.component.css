@@ -8,7 +8,7 @@ body{
 
 
 .background-container {
-    background-image: url('../../../assets/Images/logo_empresa2.png'); /* Cambia 'ruta-de-tu-imagen.jpg' por la ruta real de tu imagen */
+   /* background-image: url('../../../assets/Images/logo_empresa2.png'); /* Cambia 'ruta-de-tu-imagen.jpg' por la ruta real de tu imagen */
     
     background-repeat: no-repeat;
     height:70vh; /* Establece la altura al 100% de la ventana */
